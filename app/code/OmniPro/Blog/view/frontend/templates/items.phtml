@@ -1,0 +1,21 @@
+<?php
+/**
+ *  @var \OmniPro\Blog\Block\Post $block 
+ *  @var \OmniPro\Wizard\ViewModel\BlogViewModel $viewModel
+*/
+$viewModel = $block->getData('view_model_items');
+$collection = $viewModel->getPostCollection()->getData();
+$collection = array_reverse($collection);
+    foreach ($collection as $post): ?>
+       <div class="card mw-75 mt-3 border border-dark">
+            <?php if($post["post_img"]!=null): ?>
+                <img class="card-img-left p-2" src="<?=$post["post_img"]?>" alt="Imagen">
+            <?php endif; ?>
+            <div class="card-body">
+                <h5 class="card-title"><?=$post["post_title"]?></h5>
+                <p class="card-text"><?=$post["post_content"]?></p>
+                <p class="card-text"><?=substr($post["created_at"],0,10)?></p> 
+            </div>
+        </div>
+    <?php endforeach; 
+?>

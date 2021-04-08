@@ -1,0 +1,55 @@
+<?php
+
+use Magento\Framework\View\Element\Template;
+use OmniPro\Blog\ViewModel\BlogViewModel;
+
+/**
+ * @var Template $block
+ * @var BlogViewModel $viewModel
+*/
+
+$viewModel = $block->getData('view_model_form');
+?>
+<form class="form" action="<?= $viewModel->savePost() ?>" method="POST" data-hasrequired="* Required Fields" data-mage-init='{"validation":{}}'>
+	<div class="container contact border border-dark rounded mt-5">
+		<div class="row p-4">
+			<div class="col-md-9">
+				<h2>New blog post</h2>
+                <fieldset class="fieldset">
+                    <div class="contact-form">
+                        <div class="form-group field name required">
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="post_title" placeholder="My post title" name="post_title">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group field name required">
+                            <div class="col-sm-10">
+                                <textarea class="form-control" rows="5" id="post_content" placeholder="Here all my important post text!" name="post_content"></textarea>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group field name required">
+                            <div class="col-sm-5">
+                                <input type="email" class="form-control" id="post_email" placeholder="Email Address" name="post_email">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <div class="col-sm-10">
+                                <input type="file" class="form-control" id="post_img" name="post_img"/>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+			<div class="col-md-3">
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<button type="submit" class="btn btn-primary w-100" style="margin-top: 3rem;">Save post</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
