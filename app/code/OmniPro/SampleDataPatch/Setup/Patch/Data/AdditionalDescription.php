@@ -59,7 +59,6 @@ class AdditionalDescription implements DataPatchInterface
      */
     public function apply()
     {
-        /** @var EavSetup $eavSetup */
         $eavSetup = $this->_eavSetupFactory->create(['setup' => $this->_moduleDataSetup]);
         try {
             $eavSetup->addAttribute('catalog_product', 'additional_description', [

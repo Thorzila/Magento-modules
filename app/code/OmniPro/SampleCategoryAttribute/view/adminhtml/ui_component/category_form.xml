@@ -12,7 +12,9 @@
                         <allowedExtensions>jpg jpeg gif png</allowedExtensions>
                         <maxFileSize>2097152</maxFileSize>
                         <uploaderConfig>
-                            <param xsi:type="string" name="url">pub/media/catalog/product</param>
+                            <param xsi:type="string" name="url">catalog/category_image/upload</param>
+                            <param name="elementTmpl" xsi:type="string">ui/form/element/uploader/uploader</param>
+                            <param name="previewTmpl" xsi:type="string">Magento_Catalog/image-preview</param>
                         </uploaderConfig>
                     </settings>
                 </imageUploader>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="omnipro" class="omnipro" sortOrder="10" translate="label">
+            <label>OMNI.PRO</label>
+        </tab>
+        <section id="omniprosection" showInDefault="1" showInStore="1" sortOrder="10" translate="label">
+            <label>Omnipro Label Config</label>
+            <tab>omnipro</tab>
+            <resource>OmniPro_Attributes::acl_rule</resource>
+            <group id="omniprogroup" translate="label_comment" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1">
+                <label>Omnipro Group</label>
+                <comment>Comentario</comment>
+                <field id="enabled" translate="label" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" type="select">
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="omniprofield" translate="label" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" type="text">
+                    <label>Configuracion</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

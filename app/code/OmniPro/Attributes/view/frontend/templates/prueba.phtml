@@ -1,0 +1,27 @@
+<?php
+use Magento\Framework\View\Element\Template;
+use OmniPro\Attributes\ViewModel\AttributeViewModel;
+/** 
+ * @var Template $block 
+ * @var AttributeViewModel $viewModel
+*/
+$viewModel = $block->getData('view_model');
+var_dump($viewModel);
+?>
+<div class="prueba-blog">
+
+</div>
+
+<div data-mage-init='{"prueba-magento": {
+    "prueba-parametro" : "<?= $viewModel->getConfig() ?>"
+}}'>
+</div>
+
+<!--<script type="text/x-magento-init">
+{
+    "*" : {
+        "prueba-magento" : {}
+    }
+}
+</script>-->
+

@@ -29,3 +29,5 @@ pub/
 setup/
 var/
 vendor/
+.idea/
+.vscode/
