@@ -1,38 +1,43 @@
 <?php
 namespace OmniPro\Blog\Controller\Blog;
 
-use Magento\Framework\App\Action\Context;
-use OmniPro\Blog\Model\Blog;
-
 class Save extends \Magento\Framework\App\Action\Action
 {
-    protected $_blogIntefaceFactory;
+    protected $_blogInterfaceFactory;
+
     protected $_blogRepository;
 
+    /**
+     * @param \Magento\Framework\App\Action\Context $context
+     */
     public function __construct(
-        Context $context,
-        \OmniPro\Blog\Api\Data\BlogInterfaceFactory $blogInterfaceFactory,
-        \OmniPro\Blog\Api\BlogRepositoryInterface $blogRepository
+       \Magento\Framework\App\Action\Context $context,
+       \OmniPro\Blog\Api\Data\BlogInterfaceFactory $blogInterfaceFactory,
+       \OmniPro\Blog\Api\BlogRepositoryInterface $blogRepository
     )
     {
-        $this->_blogIntefaceFactory = $blogInterfaceFactory;
         $this->_blogRepository = $blogRepository;
+        $this->_blogInterfaceFactory = $blogInterfaceFactory;
         return parent::__construct($context);
     }
-
+   
     public function execute()
     {
         $params = $this->_request->getParams();
         /**
-         * @var Blog $blog
+         * @var \OmniPro\Blog\Model\Blog $blog
          */
-        $blog = $this->_blogIntefaceFactory->create();
-        $blog->setData($params);
-//        $blog->setTitle($params['post_title']);
-//        $blog->setContent($params['post_content']);
-//        $blog->setEmail($params['post_email']);
-//        $blog->setImg($params['post_img']);
-        $this->_blogRepository->save($blog);
-        return $this->_redirect('module/blog/index');
+        try {
+            $blog = $this->_blogInterfaceFactory->create();
+            $blog->setTitle($params['post_title'] ?? '');
+            $blog->setContent($params['post_content'] ?? '');
+            $blog->setEmail($params['post_email'] ?? '');
+            $blog->setImg($params['post_img'] ?? '');
+            $this->_blogRepository->save($blog);
+        } catch (\Throwable $th) {
+            $th->getMessage();
+        }
+        return $this->_redirect('*/*/index');
     }
+    
 }

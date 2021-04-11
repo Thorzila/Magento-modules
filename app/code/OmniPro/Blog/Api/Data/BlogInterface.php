@@ -1,8 +1,8 @@
 <?php
 namespace OmniPro\Blog\Api\Data;
 
-interface BlogInterface
-{
+interface BlogInterface {
+
     /**
      * Return ID
      *
@@ -19,54 +19,62 @@ interface BlogInterface
     public function setId($id);
 
     /**
-     * Get Title
+     * Return Title
+     *
      * @return string
      */
-    public function getTitle(): string;
+    public function getTitle();
 
     /**
      * Set Title
+     *
      * @param string $title
      * @return void
      */
-    public function setTitle(string $title);
-
-    /**
-     * Get Content
-     * @return string
-     */
-    public function getContent(): string;
-
-    /**
-     * Set Content
-     * @param string $content
-     * @return void
-     */
-    public function setContent(string $content);
-
-    /**
-     * Get Email
-     * @return string
-     */
-    public function getEmail(): string;
+    public function setTitle($title);
 
     /**
      * Set Email
+     *
      * @param string $email
      * @return void
      */
-    public function setEmail(string $email);
+    public function setEmail($email);
 
     /**
-     * Get Image
+     * Get Email
+     *
      * @return string
      */
-    public function getImg(): string;
+    public function getEmail();
 
     /**
-     * Set Image
+     * Set Content
+     *
+     * @param string $content
+     * @return void
+     */
+    public function setContent($content);
+
+    /**
+     * Get Content
+     *
+     * @return string
+     */
+    public function getContent();
+
+    /**
+     * Set Img
+     *
      * @param string $img
      * @return void
      */
-    public function setImg(string $img);
+    public function setImg($img);
+
+    /**
+     * get Img
+     *
+     * @return string
+     */
+    public function getImg();
 }

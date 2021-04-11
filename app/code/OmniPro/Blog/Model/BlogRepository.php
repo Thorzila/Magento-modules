@@ -1,38 +1,31 @@
 <?php
 namespace OmniPro\Blog\Model;
 
-use Exception;
-use Magento\Framework\Api\SearchCriteriaInterface;
-use Magento\Framework\Exception\AlreadyExistsException;
-use Magento\Framework\Exception\NoSuchEntityException;
-use OmniPro\Blog\Api\BlogRepositoryInterface;
 use OmniPro\Blog\Api\Data\BlogInterface;
 use OmniPro\Blog\Api\Data\BlogSearchResultInterface;
+use \OmniPro\Blog\Model\ResourceModel\Blog\Collection;
+use Magento\Framework\Api\SearchCriteriaInterface;
+use Magento\Framework\Api\SortOrder;
+use Magento\Framework\Exception\NoSuchEntityException;
 
-class BlogRepository implements BlogRepositoryInterface
+class BlogRepository implements \OmniPro\Blog\Api\BlogRepositoryInterface
 {
-
-    protected \OmniPro\Blog\Api\Data\BlogInterfaceFactory $_blogInterfaceFactory;
-    protected \OmniPro\Blog\Api\Data\BlogSearchResultInterfaceFactory $_blogSearchResultFactory;
-    protected ResourceModel\Blog\CollectionFactory $_blogCollectionFactory;
+    protected $_blogInterfaceFactory;
+    protected $_blogCollectionFactory;
+    protected $_blogSearchResultFactory;
 
     public function __construct(
         \OmniPro\Blog\Api\Data\BlogInterfaceFactory $blogInterfaceFactory,
-        \OmniPro\Blog\Api\Data\BlogSearchResultInterfaceFactory $blogSearchResultInterfaceFactory,
-        \OmniPro\Blog\Model\ResourceModel\Blog\CollectionFactory $blogCollectionFactory
+        \OmniPro\Blog\Model\ResourceModel\Blog\CollectionFactory $blogCollectionFactory,
+        \OmniPro\Blog\Api\Data\BlogSearchResultInterfaceFactory $blogSearchResultInterfaceFactory
     )
     {
         $this->_blogInterfaceFactory = $blogInterfaceFactory;
-        $this->_blogSearchResultFactory = $blogSearchResultInterfaceFactory;
         $this->_blogCollectionFactory = $blogCollectionFactory;
+        $this->_blogSearchResultFactory = $blogSearchResultInterfaceFactory;
     }
 
-    /**
-     * @param int $id
-     * @return BlogInterface
-     * @throws NoSuchEntityException
-     */
-    public function getById(int $id): BlogInterface
+    public function getById($id)
     {
         $blog = $this->_blogInterfaceFactory->create();
         $blog->getResource()->load($blog, $id);
@@ -42,43 +35,30 @@ class BlogRepository implements BlogRepositoryInterface
         return $blog;
     }
 
-    /**
-     * @param BlogInterface $blog
-     * @return BlogInterface
-     * @throws AlreadyExistsException
-     */
-    public function save(BlogInterface $blog): BlogInterface
+    public function save(BlogInterface $blog)
     {
         $blog->getResource()->save($blog);
         return $blog;
     }
 
-    /**
-     * @param BlogInterface $blog
-     * @throws Exception
-     */
     public function delete(BlogInterface $blog)
     {
         $blog->getResource()->delete($blog);
     }
 
-    /**
-     * @param SearchCriteriaInterface $searchCriteria
-     * @return BlogSearchResultInterface
-     */
-    public function getList(SearchCriteriaInterface $searchCriteria): BlogSearchResultInterface
+    public function getList(SearchCriteriaInterface $searchCriteria)
     {
         $collection = $this->_blogCollectionFactory->create();
-
+ 
         $this->addFiltersToCollection($searchCriteria, $collection);
         $this->addSortOrdersToCollection($searchCriteria, $collection);
         $this->addPagingToCollection($searchCriteria, $collection);
-
+ 
         $collection->load();
-
+ 
         return $this->buildSearchResult($searchCriteria, $collection);
     }
-
+ 
     private function addFiltersToCollection(SearchCriteriaInterface $searchCriteria, Collection $collection)
     {
         foreach ($searchCriteria->getFilterGroups() as $filterGroup) {
@@ -90,7 +70,7 @@ class BlogRepository implements BlogRepositoryInterface
             $collection->addFieldToFilter($fields, $conditions);
         }
     }
-
+ 
     private function addSortOrdersToCollection(SearchCriteriaInterface $searchCriteria, Collection $collection)
     {
         foreach ((array) $searchCriteria->getSortOrders() as $sortOrder) {
@@ -98,21 +78,21 @@ class BlogRepository implements BlogRepositoryInterface
             $collection->addOrder($sortOrder->getField(), $direction);
         }
     }
-
+ 
     private function addPagingToCollection(SearchCriteriaInterface $searchCriteria, Collection $collection)
     {
         $collection->setPageSize($searchCriteria->getPageSize());
         $collection->setCurPage($searchCriteria->getCurrentPage());
     }
-
+ 
     private function buildSearchResult(SearchCriteriaInterface $searchCriteria, Collection $collection)
     {
         $searchResults = $this->_blogSearchResultFactory->create();
-
+ 
         $searchResults->setSearchCriteria($searchCriteria);
         $searchResults->setItems($collection->getItems());
         $searchResults->setTotalCount($collection->getSize());
-
+ 
         return $searchResults;
     }
 }

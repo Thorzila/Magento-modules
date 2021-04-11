@@ -1,35 +1,33 @@
 <?php
 namespace OmniPro\Blog\Api;
 
-use Magento\Framework\Api\SearchCriteriaInterface;
-use Magento\Framework\Exception\NoSuchEntityException;
 use \OmniPro\Blog\Api\Data\BlogInterface;
-use OmniPro\Blog\Api\Data\BlogSearchResultInterface;
+use \OmniPro\Blog\Api\Data\BlogSearchResultInterface;
 
 interface BlogRepositoryInterface
 {
     /**
      * @param int $id
-     * @return BlogInterface
-     * @throws NoSuchEntityException
+     * @return \OmniPro\Blog\Api\Data\BlogInterface
+     * @throws \Magento\Framework\Exception\NoSuchEntityException
      */
-    public function getById(int $id): BlogInterface;
-
+    public function getById($id);
+ 
     /**
-     * @param BlogInterface $blog
-     * @return BlogInterface
+     * @param \OmniPro\Blog\Api\Data\BlogInterface $blog
+     * @return \OmniPro\Blog\Api\Data\BlogInterface
      */
-    public function save(BlogInterface $blog): BlogInterface;
-
+    public function save(BlogInterface $blog);
+ 
     /**
-     * @param BlogInterface $blog
+     * @param \OmniPro\Blog\Api\Data\BlogInterface $blog
      * @return void
      */
     public function delete(BlogInterface $blog);
-
+ 
     /**
-     * @param SearchCriteriaInterface $searchCriteria
-     * @return BlogSearchResultInterface
+     * @param \Magento\Framework\Api\SearchCriteriaInterface $searchCriteria
+     * @return \OmniPro\Blog\Api\Data\BlogSearchResultInterface
      */
-    public function getList(SearchCriteriaInterface $searchCriteria): BlogSearchResultInterface;
+    public function getList(\Magento\Framework\Api\SearchCriteriaInterface $searchCriteria);
 }

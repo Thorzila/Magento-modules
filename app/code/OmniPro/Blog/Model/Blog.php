@@ -1,22 +1,14 @@
 <?php
 namespace OmniPro\Blog\Model;
 
-use Magento\Framework\Data\Collection\AbstractDb;
-use Magento\Framework\DataObject\IdentityInterface;
-use Magento\Framework\Model\AbstractModel;
-use Magento\Framework\Model\Context;
-use Magento\Framework\Model\ResourceModel\AbstractResource;
-use Magento\Framework\Registry;
-use OmniPro\Blog\Api\Data\BlogInterface;
-
-class Blog extends AbstractModel implements IdentityInterface, BlogInterface
+class Blog extends \Magento\Framework\Model\AbstractModel implements \Magento\Framework\DataObject\IdentityInterface, \OmniPro\Blog\Api\Data\BlogInterface
 {
     const CACHE_TAG = 'omnipro_blog_blog';
-    const TITLE = 'title';
-    const EMAIL = 'email';
-    const CONTENT = 'content';
-    const IMG = 'img';
-    const ID = 'id';
+    const POST_TITLE = 'post_title';
+    const POST_EMAIL = 'post_email';
+    const POST_CONTENT = 'post_content';
+    const POST_IMG = 'post_img';
+    const POST_ID = 'post_id';
 
     /**
      * Model cache tag for clear cache in after save and after delete
@@ -33,17 +25,17 @@ class Blog extends AbstractModel implements IdentityInterface, BlogInterface
     protected $_eventPrefix = 'blog';
 
     /**
-     * @param Context $context
-     * @param Registry $registry
-     * @param AbstractResource|null $resource
-     * @param AbstractDb|null $resourceCollection
+     * @param \Magento\Framework\Model\Context $context
+     * @param \Magento\Framework\Registry $registry
+     * @param \Magento\Framework\Model\ResourceModel\AbstractResource $resource
+     * @param \Magento\Framework\Data\Collection\AbstractDb $resourceCollection
      * @param array $data
      */
     public function __construct(
-        Context $context,
-        Registry $registry,
-        AbstractResource $resource = null,
-        AbstractDb $resourceCollection = null,
+        \Magento\Framework\Model\Context $context,
+        \Magento\Framework\Registry $registry,
+        \Magento\Framework\Model\ResourceModel\AbstractResource $resource = null,
+        \Magento\Framework\Data\Collection\AbstractDb $resourceCollection = null,
         array $data = []
     ) {
         parent::__construct($context, $registry, $resource, $resourceCollection, $data);
@@ -64,86 +56,54 @@ class Blog extends AbstractModel implements IdentityInterface, BlogInterface
      *
      * @return array
      */
-    public function getIdentities(): array
+    public function getIdentities()
     {
         return [self::CACHE_TAG . '_' . $this->getId()];
     }
 
     public function getId()
     {
-        return $this->getData(self::ID);
+        return $this->getData(self::POST_ID);
     }
 
     public function setId($id)
     {
-        $this->setData(self::ID, $id);
+        $this->setData(self::POST_ID, $id);
     }
 
-    /**
-     * @return string
-     */
-    public function getTitle(): string
+    public function getTitle()
     {
-        return $this->getData(self::TITLE);
+        return $this->getData(self::POST_TITLE);
     }
 
-    /**
-     * @param string $title
-     * @return void
-     */
-    public function setTitle(string $title)
+    public function setTitle($title)
     {
-        $this->setData(self::TITLE, $title);
+        $this->setData(self::POST_TITLE, $title);
     }
 
-    /**
-     * @return string
-     */
-    public function getContent(): string
+    public function getContent()
     {
-        return $this->getData(self::CONTENT);
+        return $this->getData(self::POST_CONTENT);
     }
 
-    /**
-     * @param string $content
-     * @return void
-     */
-    public function setContent(string $content)
-    {
-        $this->setData(self::CONTENT, $content);
+    public function setContent($content) {
+        $this->setData(self::POST_CONTENT, $content);
     }
 
-    /**
-     * @return string
-     */
-    public function getEmail(): string
-    {
-        return $this->getData(self::EMAIL);
+    public function getEmail() {
+        return $this->getData(self::POST_EMAIL);
     }
 
-    /**
-     * @param string $email
-     * @return void
-     */
-    public function setEmail(string $email)
-    {
-        $this->setData(self::EMAIL, $email);
+    public function setEmail($email) {
+        $this->setData(self::POST_EMAIL, $email);
     }
 
-    /**
-     * @return string
-     */
-    public function getImg(): string
-    {
-        return $this->getData(self::IMG);
+    public function getImg() {
+        return $this->getData(self::POST_IMG);
     }
 
-    /**
-     * @param string $img
-     * @return void
-     */
-    public function setImg(string $img)
-    {
-        $this->setData(self::IMG, $img);
+    public function setImg($img) {
+        $this->setData(self::POST_IMG, $img);
     }
+
 }

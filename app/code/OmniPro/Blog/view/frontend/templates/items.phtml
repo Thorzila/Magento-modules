@@ -3,12 +3,11 @@
  *  @var Template $block
  *  @var BlogViewModel $viewModel
 */
-
 use Magento\Framework\View\Element\Template;
 use OmniPro\Blog\ViewModel\BlogViewModel;
 
 $viewModel = $block->getData('view_model_items');
-$collection = $viewModel->getPostCollection()->getData();
+$collection = $viewModel->getBlogCollection();
 $collection = array_reverse($collection);
     foreach ($collection as $post): ?>
        <div class="card mw-75 mt-3 border border-dark">
