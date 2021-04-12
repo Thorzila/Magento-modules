@@ -1,4 +1,4 @@
-jquery([
+define([
     'jquery',
     'underscore'
 ], function($, _) {
