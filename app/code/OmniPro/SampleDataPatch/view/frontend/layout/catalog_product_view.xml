@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="product.info.price">
+            <block name="omnipro.sample.datapatch" template="OmniPro_SampleDataPatch::attribute.phtml" after="product.info.stock.sku">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">OmniPro\SampleDataPatch\ViewModel\AttributeViewModel</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Catalog\Block\Product\View\Description" name="product.info.additional_description" template="Magento_Catalog::product/view/attribute.phtml" after="omnipro.sample.datapatch">
+                <arguments>
+                    <argument name="at_call" xsi:type="string">getAdditionalDescription</argument>
+                    <argument name="at_code" xsi:type="string">additional_description</argument>
+                    <argument name="css_class" xsi:type="string">additional_description</argument>
+                    <argument name="at_label" xsi:type="string">default</argument>
+                    <argument name="add_attribute" xsi:type="string">itemprop="additional_description"</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

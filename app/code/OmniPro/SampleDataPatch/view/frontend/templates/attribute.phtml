@@ -1,0 +1,8 @@
+<?php
+/** @var \Magento\Framework\View\Element\Template $block */
+$viewModel = $block->getData('view_model');
+?>
+
+<div class="template">
+    <?=$viewModel->getAttributeValue()?>
+</div>
