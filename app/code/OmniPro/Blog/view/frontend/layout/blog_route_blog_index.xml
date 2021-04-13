@@ -17,6 +17,18 @@
                     <argument name="view_model_items" xsi:type="object">OmniPro\Blog\ViewModel\BlogViewModel</argument>
                 </arguments>
             </block>
+            <block name="omnipro_blog_prueba" template="OmniPro_Blog::itemsko.phtml">
+                <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="components" xsi:type="array">
+                            <item name="blogComponent" xsi:type="array">
+                                <item name="component" xsi:type="string">blogItems</item>
+                                <item name="template" xsi:type="string">OmniPro_Blog/blog</item>
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
         </referenceContainer>
     </body>
 </page>
