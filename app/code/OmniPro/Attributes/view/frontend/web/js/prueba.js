@@ -8,24 +8,21 @@ define([
 ], function($, Component, ko, url, storage, customerData) {
     return Component.extend({
         defaults: {
-            blogs:ko.observableArray([]),
-            template:'OmniPro_Attributes/blog',
-            tracks: {
-                segundaVariable:false
-            }
+            textoPrueba: "Texto prueba",
+            blogList:ko.observable([]),
         },
         initialize: function () {
             this._super();
-            console.log(this);
-            console.log(this.tracks.segundaVariable);
             var self = this;
-            console.log(url.build('omniproattributes/prueba/omnipro'));
-            //console.log(customerData.get('cart')());
             var blogs = "/rest/V1/blogs?searchCriteria";
             storage.get(blogs)
             .done((resp)=>{
-                self.blogs(resp.items);
-                console.log(self.blogs());
+                var array = resp.items;
+                /*array.forEach(item => {
+                    self.blogList().push(item);
+                });*/
+                self.blogList(array);
+                console.log(this.blogList());
             });
             return this;
         }

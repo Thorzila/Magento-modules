@@ -25,7 +25,7 @@ class AttributeViewModel implements ArgumentInterface
 
     public function getConfig() {
         $id = $this->storeManager->getStore()->getId();
-        $config = $this->helperData->getOmniproFiedl($id);
+        $config = $this->helperData->getOmniproField($id);
         return $config;
     }   
 }

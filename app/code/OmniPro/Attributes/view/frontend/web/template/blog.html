@@ -1,1 +1,23 @@
-Hola mundo
+<div>
+    <h1 class="blog-header">Blog list</h1>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Email</th>
+            <th>Img</th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: blogList">
+        <tr class="blog-body">
+            <td data-bind="text: id"></td>
+            <td class="blog-title" data-bind="text: title"></td>
+            <td data-bind="text: content"></td>
+            <td data-bind="text: email"></td>
+            <td data-bind="text: img"></td>
+        </tr>
+    </tbody>
+</table>

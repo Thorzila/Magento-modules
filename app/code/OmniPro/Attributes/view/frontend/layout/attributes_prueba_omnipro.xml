@@ -1,10 +1,25 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="OmniPro_Attributes::css/blog.css"/>
+    </head>
     <body>
         <referenceContainer name="content">
             <block name="omnipro_prueba_js" template="OmniPro_Attributes::prueba.phtml">
                 <arguments>
                     <argument name="view_model" xsi:type="object">OmniPro\Attributes\ViewModel\AttributeViewModel</argument>
+                </arguments>
+            </block>
+            <block name="omnipro_attributes_prueba" template="OmniPro_Attributes::itemsko.phtml">
+                <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="components" xsi:type="array">
+                            <item name="blogComponent" xsi:type="array">
+                                <item name="component" xsi:type="string">prueba</item>
+                                <item name="template" xsi:type="string">OmniPro_Attributes/blog</item>
+                            </item>
+                        </item>
+                    </argument>
                 </arguments>
             </block>
         </referenceContainer>

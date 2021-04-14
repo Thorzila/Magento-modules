@@ -16,7 +16,7 @@ class Data extends \Magento\Framework\APp\Helper\AbstractHelper
         return $this->scopeConfig->getValue(self::CONFIG_PATH . $config, ScopeInterface::SCOPE_STORE, $storeId);
     }
 
-    public function getOmniproFiedl($storeId = null){
+    public function getOmniproField($storeId = null){
         return $this->getConfig('omniprofield', $storeId);
     }
 }
