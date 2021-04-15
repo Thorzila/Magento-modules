@@ -12,7 +12,7 @@ $collection = array_reverse($collection);
     foreach ($collection as $post): ?>
        <div class="card mw-75 mt-3 border border-dark">
             <?php if($post["post_img"]!=null): ?>
-                <img class="card-img-left p-2" src="<?=$post["post_img"]?>" alt="Imagen">
+                <img class="card-img-left p-2" src="<?='https://app.prueba-magento.test/pub/media/'.$post["post_img"]?>" alt="Imagen" width="200px">
             <?php endif; ?>
             <div class="card-body">
                 <h5 class="card-title"><?=$post["post_title"]?></h5>

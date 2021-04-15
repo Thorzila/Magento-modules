@@ -7,7 +7,7 @@ use OmniPro\Blog\ViewModel\BlogViewModel;
 */
 $viewModel = $block->getData('view_model_form');
 ?>
-<form class="form" action="<?= $viewModel->savePost() ?>" method="post" data-mage-init='{"validation":{}}'>
+<form class="form" action="<?= $viewModel->savePost() ?>" method="post" data-mage-init='{"validation":{}}' enctype="multipart/form-data">
 	<div class="container contact border border-dark rounded mt-5">
 		<div class="row p-4">
 			<div class="col-md-9">

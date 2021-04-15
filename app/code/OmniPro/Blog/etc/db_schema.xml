@@ -5,7 +5,7 @@
         <column xsi:type="varchar" name="post_title" length="50" nullable="false" comment="Post title"/>
         <column xsi:type="text" name="post_content" nullable="true" comment="Post content"/>
         <column xsi:type="varchar" name="post_email" length="50" nullable="false" comment="Post email"/>
-        <column xsi:type="varbinary" name="post_img" length="255" nullable="true" comment="Post img"/>
+        <column xsi:type="varchar" name="post_img" length="255" nullable="true" comment="Post img"/>
         <column xsi:type="timestamp" name="created_at" default="CURRENT_TIMESTAMP" on_update="false" nullable="false" comment="Create at"/>
         <column xsi:type="timestamp" name="updated_at" default="CURRENT_TIMESTAMP" on_update="true" nullable="false" comment="Updated at"/>
         <constraint xsi:type="primary" referenceId="PRIMARY">
