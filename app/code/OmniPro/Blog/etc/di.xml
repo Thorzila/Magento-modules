@@ -23,7 +23,7 @@
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
-                <item name="omnipro_blog_list_data_source" xsi:type="string">OmniPro\Blog\Model\ResourceModel\Blog\Grid\Collection</item>
+                <item name="omnipro_blog_post_data_source" xsi:type="string">OmniPro\Blog\Model\ResourceModel\Blog\Grid\Collection</item>
             </argument>
         </arguments>
     </type>

@@ -32,11 +32,6 @@ define([
         initialize: function() {
             this._super();
             this.getBlogs();
-            $(document).ready(function(){
-                $("#saveButton").click(function(){
-                    window.location.reload();
-                });
-            })
             return this;
         },
         saveBlog: function() {
@@ -51,6 +46,10 @@ define([
             storage.post(this.blogPostUrl, JSON.stringify(blog))
             .then($.proxy(function() {
                 this.getBlogs();
+                this.title('');
+                this.content('');
+                this.email('');
+                this.img('');
             }, this));
         },
         getBlogs: function() {

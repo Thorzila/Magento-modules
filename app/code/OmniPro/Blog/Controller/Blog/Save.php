@@ -74,7 +74,14 @@ class Save extends \Magento\Framework\App\Action\Action
         } catch (\Throwable $th) {
             $th->getMessage();
         }
-        return $this->_redirect('*/*/index');
+
+        return $this->_redirect("*/*/index");
+
+        // if($params['url'] =="https://app.prueba-magento.test/backend/blogsadmin/blog/create/") {
+        //     return $this->_redirect('backend/blogsadmin/blog/index');
+        // }else{
+            
+        // }
     }
     
 }
