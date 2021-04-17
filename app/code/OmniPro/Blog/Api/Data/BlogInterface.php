@@ -1,7 +1,7 @@
 <?php
 namespace OmniPro\Blog\Api\Data;
 
-interface BlogInterface {
+interface BlogInterface { //debo implementar una interfaz aqui 
 
     /**
      * Return ID

@@ -9,29 +9,47 @@
         <item name="layout" xsi:type="array">
             <item name="type" xsi:type="string">tabs</item>
         </item>
+        <!-- <item name="buttons" xsi:type="array">`
+            <item name="back" xsi:type="string">OmniPro\Blog\Block\Adminhtml\BlogButton\BackButton</item>
+            <item name="delete" xsi:type="string">OmniPro\Blog\Block\Adminhtml\Blog\Button\DeleteButton</item>
+            <item name="reset" xsi:type="string">OmniPro\Blog\Block\Adminhtml\Blog\Button\ResetButton</item>
+            <item name="save" xsi:type="string">OmniPro\Blog\Block\Adminhtml\Blog\Button\SaveButton</item>
+        </item> -->
         <item name="buttons" xsi:type="array">
-            <item name="add" xsi:type="array">
-                <item name="name" xsi:type="string">add</item>
+            <item name="save" xsi:type="array">
+                <item name="name" xsi:type="string">save</item>
+                <item name="class" xsi:type="string">OmniPro\Blog\Block\Adminhtml\Blog\Button\SaveButton primary</item>
                 <item name="label" xsi:type="string" translate="true">Guardar</item>
-                <item name="class" xsi:type="string">primary</item>
-                <item name="url" xsi:type="string">https://app.prueba-magento.test/module/blog/save</item>
             </item>
         </item>
     </argument>
 
-<dataSource component="Magento_Ui/js/grid/provider" name="omnipro_blog_post_data_source">
-    <settings>
-        <updateUrl path="mui/index/render"/>
-    </settings>
-    <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider" name="omnipro_blog_post_data_source">
-        <settings>
-            <requestFieldName>post_id</requestFieldName>
-            <primaryFieldName>post_id</primaryFieldName>
+    <dataSource  name="omnipro_blog_post_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">OmniPro\Blog\Model\Blog\DataProvider</argument>
+            <argument name="name" xsi:type="string">omnipro_blog_post_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">post_id</argument>
+            <argument name="requestFieldName" xsi:type="string">post_id</argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <!--<dataSource> component="Magento_Ui/js/grid/provider" ... </dataSource> -->
+        <!-- Configuracion alternativa de dataProvider -->
+        <!-- <settings>
+            <updateUrl path="mui/index/render"/>
         </settings>
-    </dataProvider>
-</dataSource>
+        <dataProvider class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider" name="omnipro_blog_post_data_source">
+            <settings>
+                <requestFieldName>post_id</requestFieldName>
+                <primaryFieldName>post_id</primaryFieldName>
+            </settings>
+        </dataProvider> -->
+    </dataSource>
   
-    <fieldset name="post">
+    <fieldset name="blog">
         <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
                 <item name="label" xsi:type="string" translate="true"></item>
@@ -53,7 +71,7 @@
                     <item name="visible" xsi:type="boolean">false</item>
                     <item name="dataType" xsi:type="string">text</item>
                     <item name="formElement" xsi:type="string">input</item>
-                    <item name="source" xsi:type="string">post</item>
+                    <item name="source" xsi:type="string">blog</item>
                 </item>
             </argument>
         </field>
@@ -65,7 +83,7 @@
                     <item name="visible" xsi:type="boolean">true</item>
                     <item name="dataType" xsi:type="string">text</item>
                     <item name="formElement" xsi:type="string">input</item>
-                    <item name="source" xsi:type="string">post</item>
+                    <item name="source" xsi:type="string">blog</item>
                 </item>
             </argument>
         </field>
@@ -78,7 +96,7 @@
                     <item name="label" xsi:type="string">Contenido</item>
                     <item name="visible" xsi:type="boolean">true</item>
                     <item name="dataType" xsi:type="string">text</item>
-                    <item name="source" xsi:type="string">post</item>
+                    <item name="source" xsi:type="string">blog</item>
                 </item>
             </argument>
         </field>
@@ -89,7 +107,7 @@
                     <item name="visible" xsi:type="boolean">true</item>
                     <item name="dataType" xsi:type="string">text</item>
                     <item name="formElement" xsi:type="string">input</item>
-                    <item name="source" xsi:type="string">post</item>
+                    <item name="source" xsi:type="string">blog</item>
                 </item>
             </argument>
         </field>
