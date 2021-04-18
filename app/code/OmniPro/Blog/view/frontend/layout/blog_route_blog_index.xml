@@ -11,11 +11,6 @@
                 <arguments>
                     <argument name="view_model_form" xsi:type="object">OmniPro\Blog\ViewModel\BlogViewModel</argument>
                 </arguments>
-            </block>
-            <block name="omnipro_blog_items" template="OmniPro_Blog::items.phtml">
-                <arguments>
-                    <argument name="view_model_items" xsi:type="object">OmniPro\Blog\ViewModel\BlogViewModel</argument>
-                </arguments>
             </block> -->
             <!-- Prueba de template html y js con API -->
             <block name="omnipro_blog_prueba" template="OmniPro_Blog::itemsko.phtml">
@@ -28,6 +23,11 @@
                             </item>
                         </item>
                     </argument>
+                </arguments>
+            </block>
+            <block name="omnipro_blog_items" template="OmniPro_Blog::items.phtml">
+                <arguments>
+                    <argument name="view_model_items" xsi:type="object">OmniPro\Blog\ViewModel\BlogViewModel</argument>
                 </arguments>
             </block>
         </referenceContainer>

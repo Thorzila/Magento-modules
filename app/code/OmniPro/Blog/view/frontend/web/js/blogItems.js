@@ -40,9 +40,9 @@ define([
             var reader = new FileReader();
             reader.readAsDataURL(image);
             reader.onload = $.proxy(function (e) { 
-                var base64 = reader.result
-                                .replace("data:", "")
-                                .replace(/^.+,/, "")
+                var base64 = reader.result;
+                                // .replace("data:", "")
+                                // .replace(/^.+,/, "")
                 this.imageBase64(base64);
             }, this);
         },
