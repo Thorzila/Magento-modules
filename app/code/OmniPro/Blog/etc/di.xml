@@ -20,6 +20,7 @@
         </arguments>
     </virtualType>
 
+    <!-- definicion de un dataSource, utilizado en los xml que proveen los modelos -->
     <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
         <arguments>
             <argument name="collections" xsi:type="array">
@@ -35,4 +36,8 @@
         </arguments>
     </virtualType>
 
+    <!-- definicion de un plugin -->
+    <type name="OmniPro\Blog\Api\BlogRepositoryInterface">
+        <plugin name="omnipro_blog_repository_plugin" type="OmniPro\Blog\Plugin\BlogRepositoryPlugin" sortOrder="1" disabled="false" />
+    </type>
 </config>

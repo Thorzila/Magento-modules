@@ -7,7 +7,7 @@
                     <argument name="view_model_title" xsi:type="object">OmniPro\Blog\ViewModel\BlogViewModel</argument>
                 </arguments>
             </block>
-            <block name="omnipro_blog_form" template="OmniPro_Blog::form.phtml">
+            <!-- <block name="omnipro_blog_form" template="OmniPro_Blog::form.phtml">
                 <arguments>
                     <argument name="view_model_form" xsi:type="object">OmniPro\Blog\ViewModel\BlogViewModel</argument>
                 </arguments>
@@ -16,9 +16,9 @@
                 <arguments>
                     <argument name="view_model_items" xsi:type="object">OmniPro\Blog\ViewModel\BlogViewModel</argument>
                 </arguments>
-            </block>
+            </block> -->
             <!-- Prueba de template html y js con API -->
-            <!-- <block name="omnipro_blog_prueba" template="OmniPro_Blog::itemsko.phtml">
+            <block name="omnipro_blog_prueba" template="OmniPro_Blog::itemsko.phtml">
                 <arguments>
                     <argument name="jsLayout" xsi:type="array">
                         <item name="components" xsi:type="array">
@@ -29,7 +29,7 @@
                         </item>
                     </argument>
                 </arguments>
-            </block> -->
+            </block>
         </referenceContainer>
     </body>
 </page>

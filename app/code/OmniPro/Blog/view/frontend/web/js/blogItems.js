@@ -3,7 +3,8 @@ define([
     'ko',
     'jquery',
     'mage/storage',
-    'mage/url'
+    'mage/url',
+    'mage/validation'
 ], function(Component, ko, $, storage, url){
     url.setBaseUrl(window.BASE_URL);
     return Component.extend({
@@ -12,6 +13,7 @@ define([
             content: '',
             email: '',
             img: '',
+            imageBase64: '',
             blogs: [],
             blogsUrl: 'rest/V1/blogs?searchCriteria',
             blogPostUrl: 'rest/V1/blogs'
@@ -22,12 +24,27 @@ define([
                     'title',
                     'content',
                     'email',
-                    'img'
+                    'img',
+                    'imageBase64'
                 ])
                 .observe({
                     blogs: []
                 });
             return this;
+        },
+        isFormValid: function(form) {
+            return $(form).validation() && $(form).validation('isValid');
+        },
+        changeImage: function (data, event) {
+            var image = event.target.files[0];
+            var reader = new FileReader();
+            reader.readAsDataURL(image);
+            reader.onload = $.proxy(function (e) { 
+                var base64 = reader.result
+                                .replace("data:", "")
+                                .replace(/^.+,/, "")
+                this.imageBase64(base64);
+            }, this);
         },
         initialize: function() {
             this._super();
@@ -40,9 +57,17 @@ define([
                     "title": this.title(),
                     "email": this.email(),
                     "content": this.content(),
-                    "img": this.img()
+                    "img": "",
+                    "extension_attributes":{
+                        "img": {
+                            "name": "Prueba_imagen",
+                            "base64_encoded_data": this.imageBase64()
+                        }
+                    }
                 }
             };
+            console.log('imprimiendo datos del blog en consola: ');
+            console.log(blog);
             storage.post(this.blogPostUrl, JSON.stringify(blog))
             .then($.proxy(function() {
                 this.getBlogs();
