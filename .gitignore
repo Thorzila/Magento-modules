@@ -31,3 +31,8 @@ var/
 vendor/
 .idea/
 .vscode/
+node_modules/
+grunt-config.json
+package-lock.json
+package.json
+Gruntfile.js

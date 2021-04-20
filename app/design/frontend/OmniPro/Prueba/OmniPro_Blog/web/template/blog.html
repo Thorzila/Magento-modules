@@ -2,7 +2,7 @@
 	<div class="container contact border border-dark rounded mt-5">
 		<div class="row p-4">
 			<div class="col-md-9">
-				<h2>New blog post</h2>
+				<h2>New blog post THEME</h2>
                 <fieldset class="fieldset">
                     <div class="contact-form">
                         <div class="form-group">
@@ -53,9 +53,9 @@
         </tr>
     </thead>
     <tbody data-bind="foreach: blogs">
-        <tr>
+        <tr class="blog-body">
             <td data-bind="text: id"></td>
-            <td data-bind="text: title"></td>
+            <td class="blog-title" data-bind="text: title"></td>
             <td data-bind="text: content"></td>
             <td data-bind="text: email"></td>
             <td data-bind="text: img"></td>
