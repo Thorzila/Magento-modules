@@ -14,6 +14,8 @@ define([
             email: '',
             img: '',
             imageBase64: '',
+            imageType: '',
+            imageName: '',
             blogs: [],
             blogsUrl: 'rest/V1/blogs?searchCriteria',
             blogPostUrl: 'rest/V1/blogs'
@@ -25,7 +27,9 @@ define([
                     'content',
                     'email',
                     'img',
-                    'imageBase64'
+                    'imageBase64',
+                    'imageType',
+                    'imageName'
                 ])
                 .observe({
                     blogs: []
@@ -37,6 +41,8 @@ define([
         },
         changeImage: function (data, event) {
             var image = event.target.files[0];
+            this.imageType(image.type);
+            this.imageName(image.name);
             var reader = new FileReader();
             reader.readAsDataURL(image);
             reader.onload = $.proxy(function (e) { 
@@ -60,8 +66,9 @@ define([
                     "img": "",
                     "extension_attributes":{
                         "img": {
-                            "name": "Prueba_imagen",
-                            "base64_encoded_data": this.imageBase64()
+                            "name": this.imageName(),
+                            "base64_encoded_data": this.imageBase64(),
+                            "type": this.imageType()
                         }
                     }
                 }
