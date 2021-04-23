@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="copyright"/>
+        <referenceBlock class="Magento\Framework\View\Element\Template" name="navigation.sections" template="Magento_Theme::html/sections.phtml"/>
+        <move element="navigation.sections" destination="page.top" after="-" />
+        <referenceBlock name="page.main.title" remove="true"></referenceBlock>
+        <referenceContainer name="footer-container" remove="true" />
+    </body>
+</page>

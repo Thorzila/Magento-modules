@@ -14,6 +14,7 @@
                 <item name="class" xsi:type="string">primary</item>
                 <item name="url" xsi:type="string">*/*/newblog</item>
             </item>
+            <item name="delete" xsi:type="string">OmniPro\Blog\Block\Adminhtml\Blog\Edit\DeleteButton</item>
         </item>
     </argument>
 

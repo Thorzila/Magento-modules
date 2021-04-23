@@ -8,12 +8,25 @@ class GenericButton
      */
     private $context;
 
+    /**
+     * Registry
+     *
+     * @var \Magento\Framework\Registry
+     */
+    protected $registry;
+
     public function __construct(
-        \Magento\Backend\Block\Widget\Context $context
-
-
+        \Magento\Backend\Block\Widget\Context $context,
+        \Magento\Framework\Registry $registry
     ) {
         $this->context = $context;
+        $this->registry = $registry;
+    }
+
+    public function getId()
+    {
+        $blog = $this->registry->registry('blog');
+        return $blog ? $blog->getId() : null;
     }
 
     public function getBackUrl() {
