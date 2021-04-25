@@ -1,10 +1,30 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
-        <referenceBlock name="copyright"/>
-        <referenceBlock class="Magento\Framework\View\Element\Template" name="navigation.sections" template="Magento_Theme::html/sections.phtml"/>
-        <move element="navigation.sections" destination="page.top" after="-" />
-        <referenceBlock name="page.main.title" remove="true"></referenceBlock>
-        <referenceContainer name="footer-container" remove="true" />
+        <referenceContainer name="header-wrapper" htmlClass="bmg-header-container bmg-header-inverse container">
+            <!-- logo -->
+            <container name="header-logo-container" htmlTag="div" htmlClass="header-logo-container">
+                <referenceBlock name="logo">
+                    <arguments>
+                        <!-- <argument name="logo_file" xsi:type="helper" helper="Vendor\Module\Helper\Data::getLogo"></argument> -->
+                        <argument name="logo_file" xsi:type="string">images/logo.svg</argument>
+                        <!-- <argument name="logo_img_width" xsi:type="number">147</argument> -->
+                        <!-- <argument name="logo_img_height" xsi:type="number">92</argument> -->
+                    </arguments>
+                </referenceBlock>
+            </container>
+            <!-- /logo -->
+            ...
+        </referenceContainer>
+        <referenceBlock name="report.bugs" remove="true"></referenceBlock>
+        <referenceBlock name="top.search" remove="true"></referenceBlock>
+        <!-- <referenceBlock name="logo">
+            <arguments>
+                <argument name="logo_file" xsi:type="string">images/logo.svg</argument>
+                <argument name="logo_alt" xsi:type="string">insertando nuevo logo</argument>
+                <argument name="logo_img_width" xsi:type="number">147px</argument> 
+                <argument name="logo_img_height" xsi:type="number">92</argument>
+            </arguments>
+        </referenceBlock> -->
     </body>
 </page>
