@@ -129,10 +129,10 @@
     
         #form-validate.form.create.account.form-create-account {
             background-color: #3A3061;
-            margin-top: 10vh;
+            margin-top: 5vh;
             padding: 5%;
-            padding-bottom: 1px;
-            border-radius: 0px 0px 6px 6px;
+            padding-bottom: 3vh;
+            border-radius: 6px 6px 6px 6px;
             input {
                 background-color: transparent;
                 color: #80FFFFFF;
@@ -140,6 +140,43 @@
                 border: none;
                 border-bottom: 1px solid white;
             }
+        }
+
+        #password-strength-meter{
+            color: black;
+        }
+
+        .password-strength-meter {
+            background-color: transparent;
+        }
+
+        fieldset.fieldset.create.info {
+                padding-bottom: 0%;
+                margin-bottom: 0%;
+                h2 {
+                    padding: 0%;
+                    margin: 0%;
+                    padding-bottom: 3vh;
+                }
+        }
+        fieldset.fieldset.create.account {
+            text-transform: uppercase;
+            padding-bottom: 3.5vh;
+            margin-bottom: 0%;
+            input {
+                background-color: transparent;
+                color: #80FFFFFF;
+                padding: 0%;
+                border: none;
+                border-bottom: 1px solid white;
+            }
+        }
+
+        fieldset.fieldset.create.account::after {
+            display: none;
+        }
+        fieldset.additional_info {
+            display: none;
         }
 
         button.action.submit.primary {

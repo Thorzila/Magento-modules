@@ -24,6 +24,11 @@ $prefix = $block->showPrefix();
 $middle = $block->showMiddlename();
 $suffix = $block->showSuffix();
 ?>
+
+<div>
+    <h2 class="custom-section-font">REGISTRO</h2>
+</div>
+
 <?php if (($prefix || $middle || $suffix) && !$block->getNoWrap()) : ?>
 <div class="field required fullname <?= $block->escapeHtmlAttr($block->getContainerClassName()) ?>">
     <label for="<?= $block->escapeHtmlAttr($block->getFieldId('firstname')) ?>" class="label"><span><?= $block->escapeHtml(__('Name')) ?></span></label>
@@ -57,9 +62,6 @@ $suffix = $block->showSuffix();
             </div>
         </div>
     <?php endif; ?>
-        <div>
-            <h2>Hola mundo</h2>
-        </div>
         <div class="field field-name-firstname required">
             <label class="label" for="<?= $block->escapeHtmlAttr($block->getFieldId('firstname')) ?>"><span>NOMBRE</span></label>
             <div class="control">
@@ -87,6 +89,7 @@ $suffix = $block->showSuffix();
             <label class="label" for="<?= $block->escapeHtmlAttr($block->getFieldId('lastname')) ?>"><span>APELLIDO</span></label>
             <div class="control">
                 <input type="text" id="<?= $block->escapeHtmlAttr($block->getFieldId('lastname')) ?>"
+                       placeholder="PEREZ"
                        name="<?= $block->escapeHtmlAttr($block->getFieldName('lastname')) ?>"
                        value="<?= $block->escapeHtmlAttr($block->getObject()->getLastname()) ?>"
                        title="<?= $block->escapeHtmlAttr($block->getStoreLabel('lastname')) ?>"
