@@ -8,7 +8,8 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <head>
         <css src="css/custom.css" rel="stylesheet" type="text/css"  />
-        <link rel="stylesheet" src="https://fonts.googleapis.com/css2?family=Dosis:wght@600&amp;display=swap" type="text/css" src_type="url" />
+        <link src="https://fonts.googleapis.com/css2?family=Dosis:wght@600&amp;display=swap" rel="stylesheet" type="text/css" src_type="url" />
+        <link src="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&amp;display=swap" rel="stylesheet" src_type="url" type="text/css" />
         <script src="js/customjs.js" />
     </head>
 </page>

@@ -28,7 +28,6 @@ $formData = $block->getFormData();
       autocomplete="off">
     <?= /* @noEscape */ $block->getBlockHtml('formkey') ?>
     <fieldset class="fieldset create info">
-        <legend class="legend"><span><?= $escaper->escapeHtml(__('Personal Information')) ?></span></legend><br>
         <input type="hidden" name="success_url" value="<?= $escaper->escapeUrl($block->getSuccessUrl()) ?>">
         <input type="hidden" name="error_url" value="<?= $escaper->escapeUrl($block->getErrorUrl()) ?>">
         <?= $block->getLayout()
@@ -46,7 +45,7 @@ $formData = $block->getFormData();
                        <?php if ($formData->getIsSubscribed()): ?>checked="checked"<?php endif; ?>
                        class="checkbox">
                 <label for="is_subscribed" class="label">
-                    <span><?= $escaper->escapeHtml(__('Sign Up for Newsletter')) ?></span>
+                    <span><?= $escaper->escapeHtml(__('Suscribirse al Newsletter')) ?></span>
                 </label>
             </div>
             <?php /* Extensions placeholder */ ?>
@@ -253,6 +252,7 @@ $formData = $block->getFormData();
             <div class="control">
                 <input type="password"
                        name="password_confirmation"
+                       placeholder="**********"
                        title="<?= $escaper->escapeHtmlAttr(__('Confirm Password')) ?>"
                        id="password-confirmation"
                        class="input-text"
