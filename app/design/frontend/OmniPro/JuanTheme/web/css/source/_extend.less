@@ -8,222 +8,11 @@
 
 .media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
 
-    .customer-account-login {
-        .block .block-customer-login {
-            background-color: #3A3061;
-            border-radius: 6px 6px 6px 6px;
-            top: 41.63vh;
-            left: 6.4vw;
-        }
-        .logo {
-            position: relative;
-            margin: 0 0 0 0;
-            left: 39.2%;
-            right: 36.37%;
-            top: 7.27%;
-            bottom: 74.66%; 
-    
-            img {
-                height: 147px;
-                width: 92px;
-                margin-top: 7.27vh;
-            }
-    
-            .page-print {
-                display: inline-block;
-                float: none;
-            }
-        }
-    
-        .page-header {
-            border-bottom: none;
-            .header.content {
-                padding-top: 0%;
-            }
-        }
-    
-        .sections {
-            background: white;
-        }
-    
-        .nav-sections-items {
-            // .section-item-title[aria-controls="store.menu"] {
-            //     display: none;
-            // }
-            .section-item-title[aria-controls="store.links"] {
-                background: white;
-                border-bottom-width: 0;
-            }
-            #store\.links {
-                display: block;
-                margin: 0;
-            }
-            #store\.menu {
-                display: none;
-            }
-        }
-    
-        .nav-toggle {
-            display: inline-block;
-            text-decoration: none;
-            cursor: pointer;
-            display: block;
-            font-size: 0;
-            color: #FFFFFF;        
-            position: absolute;
-            z-index: 14;
-            left: 90vw;
-            top: 0vh;
-        }
-    
-        .nav-toggle:before {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            font-size: 28px;
-            line-height: inherit;
-            color: #FFFFFF;        
-            content: '\e609';
-            font-family: 'luma-icons';
-            vertical-align: middle;
-            display: inline-block;
-            font-weight: normal;
-            overflow: hidden;
-            text-align: center;
-            left: 87.73%;
-            right: 0%;
-            top: 0%;
-            bottom: 97.04%;
-        }
-    
-        .page-wrapper {
-            font-family: 'Dosis', sans-serif;
-            color: white;
-            background-color: #393FD0;
-            background-image: url(images/fill_13.svg), url(images/fill_8.svg), url(images/fill_17.svg);
-            background-repeat:no-repeat, no-repeat, no-repeat;
-            background-position: 12.8vw 0, 0 29.31vh, right 23.89vh;
-        }
-    
-        .page-main {
-            .page-title {
-                visibility: hidden;
-            }
-            .login-container {
-                background-color: #3A3061;
-                padding: 5%;
-                padding-bottom: 1px;
-                border-radius: 0px 0px 6px 6px;
-            }
-                .block {
-                    margin-bottom: 0%;
-                }
-                    .block-title {
-                        text-align: center;
-                        border-bottom: none !important;
-                    }
-                    .block-new-customer {
-                        display: none;
-                    }
-                .fieldset:after {
-                    display: none;
-                }
-            .form-login
-                input {
-                    background-color: transparent;
-                    color: #80FFFFFF;
-                    padding: 0%;
-                    border: none;
-                    border-bottom: 1px solid white;
-                }
-            .column.main .block:last-child {
-                padding: 5%;
-                padding-bottom: 1px;
-            }
-    
-            .fieldset .legend {
-                border-bottom: none;
-            }
-        
-            #form-validate.form.create.account.form-create-account {
-                display: none;
-                background-color: #3A3061;
-                padding: 5%;
-                padding-bottom: 1.5rem;
-                border-radius: 0px 0px 6px 6px;
-                input {
-                    background-color: transparent;
-                    color: #80FFFFFF;
-                    padding: 0%;
-                    border: none;
-                    border-bottom: 1px solid white;
-                }
-            }
-    
-            #password-strength-meter{
-                color: black;
-            }
-    
-            .password-strength-meter {
-                background-color: transparent;
-            }
-    
-            fieldset.fieldset.create.info {
-                    padding-bottom: 0%;
-                    margin-bottom: 0%;
-                    .legend {
-                        span {
-                            font-weight: 600;
-                            font-size: 2rem;
-                        }
-                    }
-                    h2 {
-                        padding: 0%;
-                        margin: 0%;
-                        padding-bottom: 3vh;
-                    }
-            }
-            fieldset.fieldset.create.account {
-                text-transform: uppercase;
-                padding-bottom: 3.5vh;
-                margin-bottom: 0%;
-                .legend {
-                    display: none;
-                }
-                input {
-                    background-color: transparent;
-                    color: #80FFFFFF;
-                    padding: 0%;
-                    border: none;
-                    border-bottom: 1px solid white;
-                }
-            }
-    
-            fieldset.fieldset.create.account::after {
-                display: none;
-            }
-            fieldset.additional_info {
-                display: none;
-            }
-    
-            button.action.submit.primary {
-                background: linear-gradient(90deg, #8DE7ED 2.31%, #2FCEC5 100%);
-                border-radius: 24px;
-                width: 100%;
-                height: 44px;
-                color: #FFFFFF;
-            }
-    
-            // .block-title:after {
-            //     visibility: true;
-            //     .block-customer-login-heading {
-            //         content: "hola mundo";
-            //     }
-            // }
-        }
-    }
-
-    
-
+    //
+    // login header
+    //
+    @import "./components/login-header.less";
+    @import "./components/customer-account-login.less";
     //
     //Seccion de estilos para la pagina de producto
     //---------------------------------------------
@@ -296,16 +85,31 @@
                                 display: flex;
                                 padding-top: 2rem;
                                 align-items: center;
+                                .swatch-option.selected {
+                                    color: white;
+                                    border: 1px solid black !important;
+                                }
                                 #option-label-color-93 {
                                     padding-right: 1rem;
+                                }
+                                .swatch-attribute-selected-option {
+                                    display: none;
                                 }
                             }
                             div.swatch-attribute.size {
                                 align-items: center;
                                 display: flex;
                                 padding-top: 2rem;
+                                .swatch-option.selected {
+                                    color: white;
+                                    background: black;
+                                    border: none;
+                                }
                                 #option-label-size-144 {
                                     padding-right: 1rem;
+                                }
+                                .swatch-attribute-selected-option {
+                                    display: none;
                                 }
                             }
                         }
@@ -326,15 +130,15 @@
                             .product-addto-links {
                                 display: none;
                             }
-                            // .price-box.pricefinalprice {
-                            //     .normal-price {
-                            //         .price-container {
-                            //             .price-label {
-                            //                 display: none;
-                            //             }
-                            //         }
-                            //     }
-                            // }
+                            .price-box.price-final_price {
+                                .normal-price {
+                                    .price-container.price-final_price.tax.weee {
+                                        .price-label {
+                                            display: none;
+                                        }
+                                    }
+                                }
+                            }
                         }
                         .product-reviews-summary {
                             width: 100%;

@@ -11,6 +11,9 @@
                 </referenceBlock>
             </container>
         </referenceContainer>
+        <referenceContainer name="columns.top">
+            <referenceBlock name="page.main.title" remove="true"></referenceBlock>
+        </referenceContainer>
         <referenceBlock name="report.bugs" remove="true"></referenceBlock>
         <referenceBlock name="top.search" remove="true"></referenceBlock>
     </body>
