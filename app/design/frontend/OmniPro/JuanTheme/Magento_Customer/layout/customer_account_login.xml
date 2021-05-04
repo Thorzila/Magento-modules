@@ -10,6 +10,7 @@
                 </referenceBlock>
             </container>
             <referenceBlock name="minicart" remove="true"/>
+            <referenceBlock name="top.search" remove="true"></referenceBlock>
         </referenceContainer>
         
         <referenceContainer name="content" >
@@ -34,6 +35,9 @@
                     <block class="Magento\Customer\Block\Form\Register" name="customer_form_register" template="form/register.phtml">
                         <container name="customer.form.register.fields.before" as="form_fields_before" label="Form Fields Before" htmlTag="div" htmlClass="customer-form-before"/>
                     </block>
+                    <referenceContainer name="columns.top">
+                        <referenceBlock name="page.main.title" remove="true"></referenceBlock>
+                    </referenceContainer>
                     <referenceBlock name="customer.new" remove="true"></referenceBlock>
                 </container>
             </container>

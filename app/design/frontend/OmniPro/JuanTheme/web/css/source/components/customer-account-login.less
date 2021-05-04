@@ -1,10 +1,12 @@
 .customer-account-login {
     .page-wrapper {
         .page-main {
+            padding-left: 6.4vw;
+            padding-right: 6.4vw;
             .login-container {
                 background-color: #3A3061;
                 padding: 5%;
-                padding-bottom: 1px;
+                padding-bottom: 0.5rem;
                 border-radius: 0px 0px 6px 6px;
                 mix-blend-mode: normal;
                 opacity: 0.9;
@@ -14,6 +16,13 @@
                 .block.block-customer-login {
                     .block-content {
                         .form-login {
+                            .fieldset.login {
+                                .actions-toolbar {
+                                    .secondary {
+                                        padding-top: 0.6rem;
+                                    }
+                                } 
+                            }
                             input {
                                 background-color: transparent;
                                 color: #80FFFFFF;
@@ -54,6 +63,10 @@
             #password-strength-meter{
                 color: black;
                 background-color: transparent;
+            }
+
+            .fieldset > .field.required > .label:after {
+                display: none;
             }
     
             fieldset.fieldset.create.info {

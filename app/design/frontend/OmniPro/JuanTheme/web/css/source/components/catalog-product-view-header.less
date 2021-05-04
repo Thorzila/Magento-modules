@@ -1,0 +1,64 @@
+.catalog-product-view {
+    * {
+        margin: 0%;
+        padding: 0%;
+    }
+    .page-wrapper {
+        background-color: white;
+        background-image: none;
+        font-family: 'Montserrat', sans-serif;
+        color: black;
+        .page-header {
+            height: 8rem;
+            background: #FFFFFF;
+            box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
+            border-bottom: none;
+            .action.towishlist {
+                span {
+                    text-decoration: none;
+                    background-color: transparent;
+                    content: url(images/icons/like.svg);
+                }
+            }
+            .minicart-wrapper {
+                .action.showcart {
+                    content: url(images/icons/minicart.svg);
+                }
+            }
+            .block.block-search {
+                content: url(images/icons/search.svg);
+            }
+            .nav-toggle {
+                display: inline-block;
+                text-decoration: none;
+                cursor: pointer;
+                display: block;
+                font-size: 0;
+                color: #33333A;        
+                left: 88vw;
+                top: 2.5vh;
+            }
+            .nav-toggle:before {
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                font-size: 28px;
+                line-height: inherit;
+                color: #33333A;        
+                content: url(images/icons/menuProductView.svg);
+                font-family: 'luma-icons';
+                vertical-align: middle;
+                display: inline-block;
+                font-weight: normal;
+            }
+            .bmg-header-container.bmg-header-inverse.container {
+                .right-col {
+                    display: flex;
+                    align-items: center;
+                    padding-right: 6.5rem;
+                    width: 35%;
+                    justify-content: space-between;
+                }
+            }
+        }
+    }
+}
